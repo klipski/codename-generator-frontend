@@ -48,7 +48,7 @@ export function MainComponent() {
       filter = `?startswith=${selectedLetter}`
     }
 
-    selects.map(async (elem: MySelect) => {
+    [...selects].reverse().map(async (elem: MySelect) => {
       const name = names.find(e => e.name === elem.value);
       if (name) {
         let url = `http://localhost:3000/names/${name.id}/random/${filter}`
@@ -115,14 +115,7 @@ export function MainComponent() {
       <Button className='add-button row' onClick={handleAddSelect}>Add field</Button>
 
       <div className='options-group row'>
-        <label>Start with letter:</label>
-        {/* <input
-          name="startswith"
-          type="checkbox"
-          checked={startsWithLetter}
-          onChange={handleInputChange}
-        />
-  */}
+        <label>Filter by letter:</label>
         <Checkbox
           className='checkbox'
           checked={startsWithLetter}
