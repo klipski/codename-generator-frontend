@@ -1,0 +1,80 @@
+body {
+  background-color: rgb(39, 37, 37);
+}
+
+.title {
+  margin: 2em auto;
+  font-size: 30px;
+}
+
+.result {
+  font-size: 20px;
+}
+
+.row {
+  margin: 10px auto;
+  color: white;
+}
+
+.checkbox {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* groups */
+.select-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.single-select-group {
+  display: flex;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.options-group {
+  display: flex;
+  justify-content: center;
+}
+
+/* buttons */
+/* add button */
+.add-button {
+  background-color: #008CBA;
+}
+
+.add-button:focus {
+  background-color: #008CBA;
+}
+
+.add-button:hover {
+  background-color: blue;
+}
+
+/* delete button */
+.delete-button {
+  background-color: #f44336;
+}
+
+.delete-button:focus {
+  background-color: #f44336;
+}
+
+.delete-button:hover {
+  background-color: red;
+}
+
+/* generate button */
+.generate-button {
+  background-color: #008CBA;
+}
+
+.generate-button:focus {
+  background-color: #008CBA;
+}
+
+.generate-button:hover {
+  background-color: blue;
+}
