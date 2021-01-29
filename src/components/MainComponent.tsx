@@ -16,6 +16,7 @@ interface MySelect {
 
 export function MainComponent() {
   const defaultValue = '-- None --';
+  const apiURL = process.env.NODE_ENV === 'production' ? process.env.API_URL : 'http://localhost:3000';
   const [names, setNames] = useState<Name[]>([]);
   const [selects, setSelects] = useState<MySelect[]>([{ key: 0, value: defaultValue }, { key: 1, value: defaultValue }]);
   const [codename, setCodename] = useState<string>('');
@@ -24,7 +25,7 @@ export function MainComponent() {
   const [selectedLetter, setSelectedLetter] = useState<string>('A');
 
   useEffect(() => {
-    axios.get('http://localhost:3000/names/')
+    axios.get(`${apiURL}/names/`)
       .then(res => setNames(res.data))
       .catch(res => alert('Cannot fetch data'));
   }, []);
@@ -51,7 +52,7 @@ export function MainComponent() {
     [...selects].reverse().map(async (elem: MySelect) => {
       const name = names.find(e => e.name === elem.value);
       if (name) {
-        let url = `http://localhost:3000/names/${name.id}/random/${filter}`
+        let url = `${apiURL}/names/${name.id}/random/${filter}`
         await axios.get(url)
           .then(res => {
             result += ' ' + res.data.name;
